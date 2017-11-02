@@ -10,3 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+Route::resource('galeria', 'GaleriaController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
