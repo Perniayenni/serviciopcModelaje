@@ -13,3 +13,6 @@
 
 Route::resource('galeria', 'GaleriaController',
     ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+
+Route::resource('imgs', 'ImgsController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
