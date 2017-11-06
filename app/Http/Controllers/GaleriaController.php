@@ -7,6 +7,7 @@ use App\Galeria;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImgsController;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -28,21 +29,36 @@ class GaleriaController extends Controller
         //
     }
 
+    public function storeImg(Request $request){
+
+    }
+
     public function store(Request $request)
     {
-        // Agregamos los datos de la galeria
-       //$id = Galeria::create($request->all());
-       //$id_g = $id->id_g;
+        $Imgs = new ImgsController();
+        $datos = ([
+            'titulo' => $request->get('titulo'),
+            'descripcion'=> $request->get('descripcion')
+        ]);
+
+ /*       // Agregamos los datos de la galeria
+        $id = Galeria::create($datos);
+        $id_g = $id->id_g;
+*/
+
+        $file= $request->file('file');
+        $nombre = $file->getClientOriginalName();
+        $url = $file->move('ImgGaleria', $nombre);
+
+        //$Imgs->GuardarImgs($url, 'Galeria', $id_g, null, null );
+
+
         $arreglo = array();
         //$elArray = $request->get('archivos');
 
         /*foreach ($elArray as $valor) {
             array_push($arreglo, $valor);
         }*/
-
-        //$file= $request->file('File');
-     //   $nombre= $file->getClientOriginalName();
-      //  $request->file('File')->move('ImgGaleria', $nombre);
 
         return response()->json($request->file('file')->getClientOriginalName());
     }
