@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Galeria;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class GaleriaController extends Controller
 {
@@ -32,13 +34,17 @@ class GaleriaController extends Controller
        //$id = Galeria::create($request->all());
        //$id_g = $id->id_g;
         $arreglo = array();
-        $elArray = $request->get('archivos');
+        //$elArray = $request->get('archivos');
 
         /*foreach ($elArray as $valor) {
             array_push($arreglo, $valor);
         }*/
 
-        return response()->json($request->file('FileItem'));
+        //$file= $request->file('File');
+     //   $nombre= $file->getClientOriginalName();
+      //  $request->file('File')->move('ImgGaleria', $nombre);
+
+        return response()->json($request->file('file')->getClientOriginalName());
     }
 
     public function show($id)
