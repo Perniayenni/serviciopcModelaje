@@ -37,10 +37,16 @@ class ImgsController extends Controller
         //
     }
 
+    public function getImgs($ref, $id){
+        if ($ref == 'Galeria'){
+            $datos = Imgs::where('id_g', '=', $id)->get();
+            return response()->json($datos);
+        }
+    }
+
     public function show($id)
     {
-        $datos = Imgs::where('ref', '=', $id)->get();
-        return response()->json($datos);
+
     }
 
     public function edit($id)
@@ -55,6 +61,11 @@ class ImgsController extends Controller
 
     public function destroy($id)
     {
-        //
+        $img = Imgs::find($id);
+        $url = $img->url;
+        $urlEditada= str_replace("http://www.ourproject.cl/", "/", $url);
+        unlink('../../'.$urlEditada);
+        $img->delete();
+        return  response()->json(['mensaje'=>true, 'codigo'=>200], 200);
     }
 }

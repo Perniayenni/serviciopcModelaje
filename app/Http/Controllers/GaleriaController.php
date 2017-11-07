@@ -22,7 +22,7 @@ class GaleriaController extends Controller
     public function index()
     {
         //
-        return response()->json('hello');
+        return response()->json(Galeria::get(),202);
     }
 
     public function create()
@@ -36,8 +36,12 @@ class GaleriaController extends Controller
 
     public function store(Request $request)
     {
+        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
+        $urlGAleria='../../ImagenesModelaje/ImgGaleria/';
         $resultadosimg=[];
         $Imgs = new ImgsController();
+        $titulo = $request->get('titulo');
+        $tituloEditado = str_replace(" ", "_", $titulo);
         $datos = ([
             'titulo' => $request->get('titulo'),
             'descripcion'=> $request->get('descripcion')
@@ -47,12 +51,15 @@ class GaleriaController extends Controller
         $id = Galeria::create($datos);
         $id_g = $id->id_g;
 
+        mkdir($urlGAleria.$tituloEditado , 07551);
+
         foreach ($request->file('file') as $value){
             $nombre =    $value->getClientOriginalName();
-            $imgG = Imgs::where('url', '=', 'ImgGaleria/'.$nombre)->get();
+            $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)->get();
             if($imgG =='[]'){
-                $url = $value->move('ImgGaleria', $nombre);
-                $Imgs->GuardarImgs($url, 'Galeria', $id_g, '', ''); //
+                $value->move($urlGAleria.$tituloEditado, $nombre);
+                $url= $princUrl.$tituloEditado.'/'.$nombre;
+                $Imgs->GuardarImgs($url, $titulo, $id_g, '', ''); //
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
                 array_push($resultadosimg, $nombre.' Ya existe');
