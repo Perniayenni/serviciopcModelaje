@@ -39,7 +39,8 @@ class ImgsController extends Controller
 
     public function show($id)
     {
-        //
+        $datos = Imgs::where('ref', '=', $id)->get();
+        return response()->json($datos);
     }
 
     public function edit($id)
