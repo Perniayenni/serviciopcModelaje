@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class ImgsController extends Controller
 {
-    public function GuardarImgs($url, $ref, $id_g, $id_m, $id_d)
+    public function GuardarImgs($url, $ref, $id_g, $id_m, $id_d) //
     {
         $datos = ([
             'url'=> $url,
@@ -18,7 +18,7 @@ class ImgsController extends Controller
             'id_m'=>$id_m,
             'id_d'=>$id_d
         ]);
-        Imgs::create($datos);
+        Imgs::create($datos);/**/
 
     }
 

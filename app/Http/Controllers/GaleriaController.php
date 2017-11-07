@@ -41,26 +41,29 @@ class GaleriaController extends Controller
             'descripcion'=> $request->get('descripcion')
         ]);
 
- /*       // Agregamos los datos de la galeria
+       // Agregamos los datos de la galeria
         $id = Galeria::create($datos);
         $id_g = $id->id_g;
-*/
 
-        $file= $request->file('file');
-        $nombre = $file->getClientOriginalName();
-        $url = $file->move('ImgGaleria', $nombre);
+        foreach ($request->file('file') as $value){
+            $nombre =    $value->getClientOriginalName();
+            $url = $value->move('ImgGaleria', $nombre);
+         //   echo 'Paso';
+            $Imgs->GuardarImgs($url, 'Galeria', $id_g, '', ''); //
+
+        }
+     //   $file->getClientOriginalName();
+
 
         //$Imgs->GuardarImgs($url, 'Galeria', $id_g, null, null );
 
-
-        $arreglo = array();
         //$elArray = $request->get('archivos');
 
         /*foreach ($elArray as $valor) {
             array_push($arreglo, $valor);
         }*/
 
-        return response()->json($request->file('file')->getClientOriginalName());
+        return response()->json($request->hasFile('file'));//response()->json($request->file('file')->getClientOriginalName());
     }
 
     public function show($id)
