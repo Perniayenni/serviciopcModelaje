@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Galeria;
+use App\Imgs;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -35,6 +36,7 @@ class GaleriaController extends Controller
 
     public function store(Request $request)
     {
+        $resultadosimg=[];
         $Imgs = new ImgsController();
         $datos = ([
             'titulo' => $request->get('titulo'),
@@ -47,23 +49,18 @@ class GaleriaController extends Controller
 
         foreach ($request->file('file') as $value){
             $nombre =    $value->getClientOriginalName();
-            $url = $value->move('ImgGaleria', $nombre);
-         //   echo 'Paso';
-            $Imgs->GuardarImgs($url, 'Galeria', $id_g, '', ''); //
+            $imgG = Imgs::where('url', '=', 'ImgGaleria/'.$nombre)->get();
+            if($imgG =='[]'){
+                $url = $value->move('ImgGaleria', $nombre);
+                $Imgs->GuardarImgs($url, 'Galeria', $id_g, '', ''); //
+                array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
+            }else{
+                array_push($resultadosimg, $nombre.' Ya existe');
 
+            }
         }
-     //   $file->getClientOriginalName();
-
-
-        //$Imgs->GuardarImgs($url, 'Galeria', $id_g, null, null );
-
-        //$elArray = $request->get('archivos');
-
-        /*foreach ($elArray as $valor) {
-            array_push($arreglo, $valor);
-        }*/
-
-        return response()->json($request->hasFile('file'));//response()->json($request->file('file')->getClientOriginalName());
+        return response()->json(['MensajeImg'=>$resultadosimg]);
+        //return response()->json($request->hasFile('file'));//response()->json($request->file('file')->getClientOriginalName());
     }
 
     public function show($id)
