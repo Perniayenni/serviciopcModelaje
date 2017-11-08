@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 class ImgsController extends Controller
 {
+    // Guardamos las imagenes Junto con el evento
     public function GuardarImgs($url, $ref, $id_g, $id_m, $id_d) //
     {
         $datos = ([
@@ -37,6 +38,7 @@ class ImgsController extends Controller
         //
     }
 
+    // Obtenemos todas las imagenes segun el id de galeria
     public function getImgs($ref, $id){
         if ($ref == 'Galeria'){
             $datos = Imgs::where('id_g', '=', $id)->get();
@@ -59,6 +61,7 @@ class ImgsController extends Controller
         //
     }
 
+    // Eliminamos las imagenes segun el id de Galería
     public function destroy($id)
     {
         $img = Imgs::find($id);

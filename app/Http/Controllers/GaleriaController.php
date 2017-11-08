@@ -30,10 +30,38 @@ class GaleriaController extends Controller
         //
     }
 
-    public function storeImg(Request $request){
+    // Guardamos Imagenes adicionales al evento
+    public  function AddMasImagenes(Request $request){
 
+        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
+        $urlGAleria='../../ImagenesModelaje/ImgGaleria/';
+        $resultadosimg=[];
+        $titulo = $request->get('titulo');
+        $id_g= $request->get('id_g');
+        $tituloEditado = str_replace(" ", "_", $titulo);
+        $Imgs = new ImgsController();
+
+        // Recorremos el file y lo guardamos en el directorio Creado
+        foreach ($request->file('file') as $value){
+            $nombre =    $value->getClientOriginalName();
+            $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)
+                                ->where('id_g', '=', $id_g)->get();
+
+            // Validamos si la img éxiste
+            if($imgG =='[]'){
+                $value->move($urlGAleria.$tituloEditado, $nombre);
+                $url= $princUrl.$tituloEditado.'/'.$nombre;
+                $Imgs->GuardarImgs($url, $titulo, $id_g, '', ''); //
+                array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
+            }else{
+                array_push($resultadosimg, $nombre.' Ya existe');
+
+            }
+        }
+        return response()->json(['MensajeImg'=>$resultadosimg]);
     }
 
+    // Guardamos las imagenes junto con el evento
     public function store(Request $request)
     {
         $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
@@ -51,11 +79,15 @@ class GaleriaController extends Controller
         $id = Galeria::create($datos);
         $id_g = $id->id_g;
 
+        // Creamos el Directorio
         mkdir($urlGAleria.$tituloEditado , 07551);
 
+        // Recorremos el file y lo guardamos en el directorio Creado
         foreach ($request->file('file') as $value){
             $nombre =    $value->getClientOriginalName();
             $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)->get();
+
+            // Validamos si la img éxiste
             if($imgG =='[]'){
                 $value->move($urlGAleria.$tituloEditado, $nombre);
                 $url= $princUrl.$tituloEditado.'/'.$nombre;
