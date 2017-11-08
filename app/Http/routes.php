@@ -19,3 +19,5 @@ Route::resource('imgs', 'ImgsController',
 
 
 Route::get('imgs/{ref}/{id}', 'ImgsController@getImgs');
+
+Route::post('AddMasImagenes', 'GaleriaController@AddMasImagenes');
