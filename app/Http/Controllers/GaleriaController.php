@@ -43,10 +43,9 @@ class GaleriaController extends Controller
 
         // Recorremos el file y lo guardamos en el directorio Creado
         foreach ($request->file('file') as $value){
-            $nombre =    $value->getClientOriginalName();
+            $nombre = $value->getClientOriginalName();
             $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)
                                 ->where('id_g', '=', $id_g)->get();
-
             // Validamos si la img éxiste
             if($imgG =='[]'){
                 $value->move($urlGAleria.$tituloEditado, $nombre);
@@ -66,6 +65,7 @@ class GaleriaController extends Controller
     {
         $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
         $urlGAleria='../../ImagenesModelaje/ImgGaleria/';
+        //$urlGAleria='ImgGaleria/';
         $resultadosimg=[];
         $Imgs = new ImgsController();
         $titulo = $request->get('titulo');
@@ -80,7 +80,7 @@ class GaleriaController extends Controller
         $id_g = $id->id_g;
 
         // Creamos el Directorio
-        mkdir($urlGAleria.$tituloEditado , 07551);
+        mkdir($urlGAleria.$tituloEditado , 0777);
 
         // Recorremos el file y lo guardamos en el directorio Creado
         foreach ($request->file('file') as $value){
@@ -120,6 +120,28 @@ class GaleriaController extends Controller
 
     public function destroy($id)
     {
-        //
+        $urlGAleria='../../ImagenesModelaje/ImgGaleria/';
+
+        // obtengo los datos de GAleria
+       $galeria = Galeria::find($id);
+       $titulo = $galeria->titulo;
+       $tituloEditado = str_replace(" ", "_", $titulo);
+
+       // Elimino las imagenes asociadas a galeria
+        $imgs = Imgs::where('id_g', '=', $id)->get();
+        foreach ($imgs as $valor){
+            $valor->delete();
+        }
+        // Elimino la carpeta del directorio
+
+            //rmdir($urlGAleria.$tituloEditado);
+
+        // Elimino la fila de galeria
+        $galeria = Galeria::find($id);
+        $galeria->delete();
+
+        return $galeria;
+
+
     }
 }
