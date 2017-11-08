@@ -140,7 +140,7 @@ class GaleriaController extends Controller
         $galeria = Galeria::find($id);
         $galeria->delete();
 
-        return $galeria;
+        return response()->json(['Mensaje'=>'El evento fue eliminado de manera éxitosa']);
 
 
     }
