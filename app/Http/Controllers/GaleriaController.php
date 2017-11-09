@@ -173,7 +173,6 @@ class GaleriaController extends Controller
             //rmdir($urlGAleria.$tituloEditado);
 
         // Elimino la fila de galeria
-        $galeria = Galeria::find($id);
         $galeria->delete();
 
         return response()->json(['Mensaje'=>'El evento fue eliminado de manera éxitosa']);

@@ -43,7 +43,11 @@ class ImgsController extends Controller
         if ($ref == 'Galeria'){
             $datos = Imgs::where('id_g', '=', $id)->get();
             return response()->json($datos);
-        }
+        }else
+            if($ref == 'Destacados'){
+                $datos = Imgs::where('id_d', '=', $id)->get();
+                return response()->json($datos);
+            }
     }
 
     public function show($id)
