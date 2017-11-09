@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dec3fcc6-9c6b-431d-bff7-3f1f8f2df2b2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/GaleriaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/GaleriaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ImgsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImgsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,14 +21,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GaleriaController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GaleriaController.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="136" column="48" lean-forward="true" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
-              <folding>
-                <element signature="e#41#57#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,8 +58,9 @@
         <option value="$PROJECT_DIR$/app/Imgs.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ImgsController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GaleriaController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -344,19 +346,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58570000" />
+    <option name="totallyTimeSpent" value="62200000" />
   </component>
   <component name="TodoView" selected-index="3" />
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="731" extended-state="1" />
+    <frame x="0" y="23" width="1280" height="731" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.5710824" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32626426" sideWeight="0.42891762" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.42891762" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.49676898" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.057096247" sideWeight="0.80937" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29200652" sideWeight="0.80937" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23990306" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -705,18 +707,6 @@
     <entry file="file://$PROJECT_DIR$/public/ImgGaleria/DSCF6020.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="22" column="66" lean-forward="true" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-          <folding>
-            <marker date="1510145333000" expanded="false" signature="9:390" ph="..." />
-            <marker date="1510145333000" expanded="true" signature="410:505" ph="..." />
-            <marker date="1510145333000" expanded="true" signature="525:614" ph="..." />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Imgs.php">
@@ -1344,60 +1334,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="6" />
-          <folding>
-            <marker date="1509651609000" expanded="false" signature="44:129" ph="..." />
-            <marker date="1509651609000" expanded="true" signature="176:1573" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="186:282" ph=" Display a listing of the resource. ..." />
-            <marker date="1509651609000" expanded="true" signature="312:335" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="344:448" ph=" Show the form for creating a new resource. ..." />
-            <marker date="1509651609000" expanded="true" signature="479:502" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="511:665" ph=" Store a newly created resource in storage. ..." />
-            <marker date="1509651609000" expanded="true" signature="711:734" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="743:860" ph=" Display the specified resource. ..." />
-            <marker date="1509651609000" expanded="true" signature="892:915" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="924:1059" ph=" Show the form for editing the specified resource. ..." />
-            <marker date="1509651609000" expanded="true" signature="1091:1114" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="1123:1300" ph=" Update the specified resource in storage. ..." />
-            <marker date="1509651609000" expanded="true" signature="1352:1375" ph="{...}" />
-            <marker date="1509651609000" expanded="true" signature="1384:1513" ph=" Remove the specified resource from storage. ..." />
-            <marker date="1509651609000" expanded="true" signature="1548:1571" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImgsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="23" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="23" />
+        <state relative-caret-position="221">
+          <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
           <folding>
-            <marker date="1510145086000" expanded="true" signature="44:142" ph="..." />
-            <marker date="1510145086000" expanded="true" signature="183:1481" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="303:515" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="329:471" ph="..." />
-            <marker date="1510145086000" expanded="true" signature="544:567" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="597:620" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="665:688" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="788:939" ph="..." />
-            <marker date="1510145086000" expanded="true" signature="820:933" ph="..." />
-            <marker date="1510145086000" expanded="true" signature="971:984" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="1015:1038" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="1089:1112" ph="{...}" />
-            <marker date="1510145086000" expanded="true" signature="1200:1479" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="44:142" ph="..." />
+            <marker date="1510236319000" expanded="true" signature="183:1471" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="303:515" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="329:471" ph="..." />
+            <marker date="1510236319000" expanded="true" signature="544:567" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="597:620" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="665:688" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="788:939" ph="..." />
+            <marker date="1510236319000" expanded="true" signature="820:933" ph="..." />
+            <marker date="1510236319000" expanded="true" signature="971:984" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="1015:1038" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="1089:1102" ph="{...}" />
+            <marker date="1510236319000" expanded="true" signature="1190:1469" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GaleriaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="136" column="48" lean-forward="true" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#41#57#0#PHP" expanded="true" />
+            <marker date="1510237131000" expanded="true" signature="45:258" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="302:5649" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="312:408" ph=" Display a listing of the resource. ..." />
+            <marker date="1510237131000" expanded="true" signature="438:514" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="544:567" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="671:1913" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="1132:1801" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="1310:1328" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="1409:1705" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="1711:1791" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="2009:3596" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="2372:2487" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="2807:3420" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="3028:3324" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="3330:3410" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="3627:3650" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="3681:3704" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="3755:4896" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="4244:4291" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="4347:4404" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="4684:4815" ph="..." />
+            <marker date="1510237131000" expanded="true" signature="4931:5647" ph="{...}" />
+            <marker date="1510237131000" expanded="true" signature="5306:5345" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="68" />
+          <folding>
+            <marker date="1510242595000" expanded="true" signature="44:163" ph="..." />
+            <marker date="1510242595000" expanded="true" signature="210:3074" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="220:316" ph=" Display a listing of the resource. ..." />
+            <marker date="1510242595000" expanded="true" signature="346:369" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="378:482" ph=" Show the form for creating a new resource. ..." />
+            <marker date="1510242595000" expanded="true" signature="513:536" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="545:699" ph=" Store a newly created resource in storage. ..." />
+            <marker date="1510242595000" expanded="true" signature="745:2235" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="1105:1266" ph="..." />
+            <marker date="1510242595000" expanded="true" signature="1583:2189" ph="..." />
+            <marker date="1510242595000" expanded="true" signature="1804:2093" ph="..." />
+            <marker date="1510242595000" expanded="true" signature="2099:2179" ph="..." />
+            <marker date="1510242595000" expanded="true" signature="2244:2361" ph=" Display the specified resource. ..." />
+            <marker date="1510242595000" expanded="true" signature="2393:2416" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="2425:2560" ph=" Show the form for editing the specified resource. ..." />
+            <marker date="1510242595000" expanded="true" signature="2592:2615" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="2624:2801" ph=" Update the specified resource in storage. ..." />
+            <marker date="1510242595000" expanded="true" signature="2853:2876" ph="{...}" />
+            <marker date="1510242595000" expanded="true" signature="2885:3014" ph=" Remove the specified resource from storage. ..." />
+            <marker date="1510242595000" expanded="true" signature="3049:3072" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

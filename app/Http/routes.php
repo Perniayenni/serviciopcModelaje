@@ -17,6 +17,9 @@ Route::resource('galeria', 'GaleriaController',
 Route::resource('imgs', 'ImgsController',
     ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
 
+Route::resource('destacados', 'DestacadosController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+
 
 Route::get('imgs/{ref}/{id}', 'ImgsController@getImgs');
 

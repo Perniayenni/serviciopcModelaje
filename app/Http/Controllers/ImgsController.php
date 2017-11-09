@@ -58,7 +58,7 @@ class ImgsController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     // Eliminamos las imagenes segun el id de Galería

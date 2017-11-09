@@ -57,7 +57,8 @@ class GaleriaController extends Controller
 
             }
         }
-        return response()->json(['MensajeImg'=>$resultadosimg]);
+        return response()->json(true);
+        //return response()->json(['MensajeImg'=>$resultadosimg]);
     }
 
     // Guardamos las imagenes junto con el evento
@@ -98,7 +99,7 @@ class GaleriaController extends Controller
 
             }
         }
-        return response()->json(['MensajeImg'=>$resultadosimg]);
+        return response()->json(true);
         //return response()->json($request->hasFile('file'));//response()->json($request->file('file')->getClientOriginalName());
     }
 
@@ -114,7 +115,42 @@ class GaleriaController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
+        $urlGAleria='ImagenesModelaje/ImgGaleria/';
+        $galeria = Galeria::find($id);
+
+        // Ruta vieja
+        $rutaold = $galeria->titulo;
+        $rutaoldEdit = str_replace(" ", "_", $rutaold);
+
+        $titulo =$request->get('titulo');
+        $tituloEditado = str_replace(" ", "_", $titulo);
+
+        $descripcion =$request->get('descripcion');
+
+        if ($titulo != null && $titulo!=''){
+            $galeria->titulo=$titulo;
+        }
+        if ($descripcion != null && $descripcion!=''){
+            $galeria->descripcion=$descripcion;
+        }
+
+        $galeria->save();
+
+        //Edito el nombre de la carpeta
+
+        rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
+
+        // Edito las imagenes asociadas a galeria
+        $imgs = Imgs::where('id_g', '=', $id)->get();
+        foreach ($imgs as $valor){
+            $valor->url = $princUrl.$tituloEditado;
+            $valor->ref = $tituloEditado;
+            $valor->save();
+        }
+
+
+        return response()->json(['mensaje'=>true, 'codigo'=>200], 200);
     }
 
 
