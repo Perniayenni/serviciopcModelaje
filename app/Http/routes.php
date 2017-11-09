@@ -20,6 +20,9 @@ Route::resource('imgs', 'ImgsController',
 Route::resource('destacados', 'DestacadosController',
     ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
 
+Route::resource('modelos', 'ModelosController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+
 
 Route::get('imgs/{ref}/{id}', 'ImgsController@getImgs');
 
