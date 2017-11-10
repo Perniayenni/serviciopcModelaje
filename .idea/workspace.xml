@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dec3fcc6-9c6b-431d-bff7-3f1f8f2df2b2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DestacadosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ImgsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImgsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ModelosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ModelosController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -260,7 +257,7 @@
       <workItem from="1509846232192" duration="7526000" />
       <workItem from="1509918596159" duration="16296000" />
       <workItem from="1510316123648" duration="205000" />
-      <workItem from="1510316437967" duration="3404000" />
+      <workItem from="1510316437967" duration="3439000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan los modelos">
       <created>1509649794393</created>
@@ -360,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510316491335</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Modificación">
+      <created>1510340505569</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1510340505569</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -369,7 +373,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68928000" />
+    <option name="totallyTimeSpent" value="68963000" />
   </component>
   <component name="TodoView" selected-index="3" />
   <component name="ToolWindowManager">
@@ -438,7 +442,8 @@
     <MESSAGE value="metodo de eliminar" />
     <MESSAGE value="Modificacion de editar destacados" />
     <MESSAGE value="Merge branch 'master' of https://gitlab.com/inversoft/ServicioProModelaje&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Modificación" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificación" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
