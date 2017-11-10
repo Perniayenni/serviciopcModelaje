@@ -139,15 +139,15 @@ class GaleriaController extends Controller
 
         //Edito el nombre de la carpeta
 
-        rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
+        //rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
 
         // Edito las imagenes asociadas a galeria
-        $imgs = Imgs::where('id_g', '=', $id)->get();
+        /* $imgs = Imgs::where('id_g', '=', $id)->get();
         foreach ($imgs as $valor){
             $valor->url = $princUrl.$tituloEditado;
             $valor->ref = $tituloEditado;
             $valor->save();
-        }
+        }*/
 
 
         return response()->json(['mensaje'=>true, 'codigo'=>200], 200);
