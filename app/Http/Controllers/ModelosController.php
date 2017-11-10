@@ -19,7 +19,7 @@ class ModelosController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Modelosp::get(),202);
     }
 
     /**
@@ -40,35 +40,32 @@ class ModelosController extends Controller
      */
     public function store(Request $request)
     {
-        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgModelos/';
+        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgModelos';
         $url='../../ImagenesModelaje/ImgModelos/';
-        //$urlGAleria='ImgGaleria/';
+
         $resultadosimg=[];
         $Imgs = new ImgsController();
         $titulo = $request->get('nombreCompleto');
-        $tituloEditado = str_replace(" ", "_", $titulo);
         $datos = ([
             'nombreCompleto' => $request->get('nombreCompleto'),
             'descripcion'=> $request->get('descripcion'),
             'nivel'=> $request->get('nivel')
         ]);
 
-        // Agregamos los datos de la galeria
+        // Agregamos los datos del modelo
         $id = Modelosp::create($datos);
         $id_m = $id->id_m;
 
-        // Creamos el Directorio
-        mkdir($url.$tituloEditado , 0777);
 
         // Recorremos el file y lo guardamos en el directorio Creado
         foreach ($request->file('file') as $value){
             $nombre =    $value->getClientOriginalName();
-            $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)->get();
+            $imgG = Imgs::where('url', '=', $princUrl.'/'.$nombre)->get();
 
             // Validamos si la img éxiste
             if($imgG =='[]'){
-                $value->move($url.$tituloEditado, $nombre);
-                $url= $princUrl.$tituloEditado.'/'.$nombre;
+                $value->move($url, $nombre);
+                $url= $princUrl.'/'.$nombre;
                 $Imgs->GuardarImgs($url, $titulo, '', $id_m, ''); //
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
@@ -111,7 +108,27 @@ class ModelosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $modelos = Modelosp::find($id);
+
+        $nombreCompleto =$request->get('nombreCompleto');
+
+        $descripcion =$request->get('descripcion');
+
+        $nivel =$request->get('nivel');
+
+        if ($nombreCompleto != null && $nombreCompleto!=''){
+            $modelos->nombreCompleto=$nombreCompleto;
+        }
+        if ($descripcion != null && $descripcion!=''){
+            $modelos->descripcion=$descripcion;
+        }
+        if ($nivel != null && $nivel!=''){
+            $modelos->nivel=$nivel;
+        }
+
+        $modelos->save();
+
+        return response()->json(['mensaje'=>true, 'codigo'=>200], 200);
     }
 
     /**
@@ -122,6 +139,18 @@ class ModelosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // obtengo los datos de Destacados
+        $modelos = Modelosp::find($id);
+
+        // Elimino las imagenes asociadas a destacados
+        $imgs = Imgs::where('id_m', '=', $id)->get();
+        foreach ($imgs as $valor){
+            $valor->delete();
+        }
+
+        // Elimino la fila de Destacados
+        $modelos->delete();
+
+        return response()->json(['Mensaje'=>'Modelo eliminado de manera éxitosa']);
     }
 }
