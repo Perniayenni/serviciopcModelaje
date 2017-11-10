@@ -133,7 +133,7 @@ class DestacadosController extends Controller
 
         //Edito el nombre de la carpeta
 
-        rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
+       /* rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
 
         // Edito las imagenes asociadas a galeria
         $imgs = Imgs::where('id_d', '=', $id)->get();
@@ -142,7 +142,7 @@ class DestacadosController extends Controller
             $valor->ref = $tituloEditado;
             $valor->save();
         }
-
+        */
         return response()->json(['mensaje'=>true, 'codigo'=>200], 200);
     }
 
