@@ -75,7 +75,6 @@ class DestacadosController extends Controller
             'descripcion'=> $request->get('descripcion'),
             'fecha'=> $request->get('fecha')
         ]);
-
         // Agregamos los datos de destacados
         $id = Destacados::create($datos);
         $id_d = $id->id_d;
@@ -90,8 +89,9 @@ class DestacadosController extends Controller
                 // Validamos si la img éxiste
                 if($imgG =='[]'){
                     $value->move($url, $nombre);
-                    $url= $princUrl.'/'.$nombre;
-                    $Imgs->GuardarImgs($url, $titulo, '', '', $id_d); //
+                    $url1= $princUrl.'/'.$nombre;
+                    $Imgs->GuardarImgs($url1, $titulo, '', '', $id_d); //
+                    $Imgs->RedimenscionarImg($url.$nombre);
                     array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
                     return response()->json(true);
                 }else{
@@ -191,10 +191,11 @@ class DestacadosController extends Controller
         $imgs = Imgs::where('id_d', '=', $id)->get();
         foreach ($imgs as $valor){
             $valor->delete();
+            /// Eliminamos la foto existente
+            $url1 = $valor->url;
+            $urlEditada= str_replace("http://www.ourproject.cl/", "/", $url1);
+            unlink('../..'.$urlEditada);
         }
-        // Elimino la carpeta del directorio
-
-        //rmdir($urlDestacados.$tituloEditado);
 
         // Elimino la fila de Destacados
         $destacados->delete();

@@ -42,22 +42,26 @@ class GaleriaController extends Controller
         $Imgs = new ImgsController();
 
         // Recorremos el file y lo guardamos en el directorio Creado
-        foreach ($request->file('file') as $value){
+         foreach ($request->file('file') as $value){
             $nombre = $value->getClientOriginalName();
             $imgG = Imgs::where('url', '=', $princUrl.$tituloEditado.'/'.$nombre)
                                 ->where('id_g', '=', $id_g)->get();
+
             // Validamos si la img éxiste
             if($imgG =='[]'){
                 $value->move($urlGAleria.$tituloEditado, $nombre);
                 $url= $princUrl.$tituloEditado.'/'.$nombre;
                 $Imgs->GuardarImgs($url, $titulo, $id_g, '', ''); //
+                $Imgs->RedimenscionarImg($urlGAleria.$tituloEditado.'/'.$nombre);
+                return response()->json($urlGAleria.$tituloEditado.'/'.$nombre);
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
                 array_push($resultadosimg, $nombre.' Ya existe');
 
             }
         }
-        return response()->json(true);
+
+
         //return response()->json(['MensajeImg'=>$resultadosimg]);
     }
 
@@ -93,6 +97,7 @@ class GaleriaController extends Controller
                 $value->move($urlGAleria.$tituloEditado, $nombre);
                 $url= $princUrl.$tituloEditado.'/'.$nombre;
                 $Imgs->GuardarImgs($url, $titulo, $id_g, '', ''); //
+                //$Imgs->RedimenscionarImg($urlGAleria.$tituloEditado.$nombre);
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
                 array_push($resultadosimg, $nombre.' Ya existe');

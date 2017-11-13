@@ -100,7 +100,7 @@ class ImgsController extends Controller
         $img_original = imagecreatefromjpeg($rutaImagenOriginal);
 
         //Se define el maximo ancho o alto que tendra la imagen final
-        $max_ancho = 300;
+        $max_ancho = 400;
         $max_alto = 300;
 
         //Ancho y alto de la imagen original

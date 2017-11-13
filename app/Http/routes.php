@@ -29,3 +29,7 @@ Route::get('imgs/{ref}/{id}', 'ImgsController@getImgs');
 Route::post('AddMasImagenes', 'GaleriaController@AddMasImagenes');
 
 Route::post('EditImgDestacados', 'DestacadosController@EditImg');
+
+Route::post('EditImgModelos', 'ModelosController@EditImgModelos');
+
+
