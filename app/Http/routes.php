@@ -23,6 +23,9 @@ Route::resource('destacados', 'DestacadosController',
 Route::resource('modelos', 'ModelosController',
     ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
 
+Route::resource('login', 'LoginController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+
 
 Route::get('imgs/{ref}/{id}', 'ImgsController@getImgs');
 

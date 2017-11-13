@@ -58,7 +58,7 @@ class ModelosController extends Controller
 
             // Llamamos la edicion de img
             $Imgs->EditarImagenes($urlsend, $id_img);
-            $Imgs->RedimenscionarImg($url.$nombre);
+            //$Imgs->RedimenscionarImg($url.$nombre);
 
             return response()->json(true);
         }
@@ -95,7 +95,7 @@ class ModelosController extends Controller
                 $value->move($url, $nombre);
                 $url1= $princUrl.'/'.$nombre;
                 $Imgs->GuardarImgs($url1, $titulo, '', $id_m, ''); //
-                $Imgs->RedimenscionarImg($url.$nombre);
+                //$Imgs->RedimenscionarImg($url.$nombre);
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
                 array_push($resultadosimg, $nombre.' Ya existe');
