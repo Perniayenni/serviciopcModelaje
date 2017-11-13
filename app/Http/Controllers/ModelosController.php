@@ -146,6 +146,11 @@ class ModelosController extends Controller
         $imgs = Imgs::where('id_m', '=', $id)->get();
         foreach ($imgs as $valor){
             $valor->delete();
+            /// Eliminamos la foto existente
+            $url1 = $valor->url;
+            $urlEditada= str_replace("http://www.ourproject.cl/", "/", $url1);
+            unlink('../..'.$urlEditada);
+
         }
 
         // Elimino la fila de Destacados

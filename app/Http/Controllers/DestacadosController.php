@@ -35,8 +35,9 @@ class DestacadosController extends Controller
         $id_img = $request->get('id_img');
 
         foreach ($request->file('file') as $value) {
-               $nombre = $value->getClientOriginalName();
-               $imgG = Imgs::find($id_img);
+            $nombre = $value->getClientOriginalName();
+            $foto = substr(md5(uniqid(rand())),0,10).".".$url   ;
+            $imgG = Imgs::find($id_img);
 
             // Eliminamos la foto existente
             $url1 = $imgG->url;
@@ -51,7 +52,8 @@ class DestacadosController extends Controller
                 $urlsend = $princUrl . '/' . $nombre;
 
                 // Llamamos la edicion de img
-                $Imgs->EditarImagenes($urlsend, $id_img); //
+                $Imgs->EditarImagenes($urlsend, $id_img);
+                $Imgs->RedimenscionarImg($url.$nombre);
 
                 return response()->json(true);
         }
