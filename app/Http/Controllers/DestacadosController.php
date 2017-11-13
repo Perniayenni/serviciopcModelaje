@@ -56,26 +56,27 @@ class DestacadosController extends Controller
         $id = Destacados::create($datos);
         $id_d = $id->id_d;
 
+        if ($request->file('file') != '' || $request->file('file') != null ){
 
-        // Recorremos el file y lo guardamos en el directorio Creado
-        foreach ($request->file('file') as $value){
-            $nombre =    $value->getClientOriginalName();
-            $imgG = Imgs::where('url', '=', $princUrl.'/'.$nombre)->get();
+            // Recorremos el file y lo guardamos en el directorio Creado
+            foreach ($request->file('file') as $value){
+                $nombre =    $value->getClientOriginalName();
+                $imgG = Imgs::where('url', '=', $princUrl.'/'.$nombre)->get();
 
-            // Validamos si la img éxiste
-            if($imgG =='[]'){
-                $value->move($url, $nombre);
-                $url= $princUrl.'/'.$nombre;
-                $Imgs->GuardarImgs($url, $titulo, '', '', $id_d); //
-                array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
-                return response()->json(true);
-            }else{
-                array_push($resultadosimg, $nombre.' Ya existe');
-                return response()->json(false);
+                // Validamos si la img éxiste
+                if($imgG =='[]'){
+                    $value->move($url, $nombre);
+                    $url= $princUrl.'/'.$nombre;
+                    $Imgs->GuardarImgs($url, $titulo, '', '', $id_d); //
+                    array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
+                    return response()->json(true);
+                }else{
+                    array_push($resultadosimg, $nombre.' Ya existe');
+                    return response()->json(false);
 
+                }
             }
         }
-
     }
 
     /**

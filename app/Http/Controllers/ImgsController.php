@@ -67,6 +67,7 @@ class ImgsController extends Controller
     public function update(Request $request, $id)
     {
 
+
     }
 
     // Eliminamos las imagenes segun el id de Galería
@@ -75,8 +76,9 @@ class ImgsController extends Controller
         $img = Imgs::find($id);
         $url = $img->url;
         $urlEditada= str_replace("http://www.ourproject.cl/", "/", $url);
-        unlink('../../'.$urlEditada);
-        $img->delete();
+         unlink('../..'.$urlEditada);
+         $img->delete();
         return  response()->json(['mensaje'=>true, 'codigo'=>200], 200);
+
     }
 }
