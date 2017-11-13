@@ -38,6 +38,16 @@ class ImgsController extends Controller
         //
     }
 
+    // Editamos las imagenes
+    public function EditarImagenes($url, $id){
+        $imgs = Imgs::find($id);
+
+        if ($url != null && $url!=''){
+            $imgs->url=$url;
+        }
+        $imgs->save();
+    }
+
     // Obtenemos todas las imagenes segun el id de galeria
     public function getImgs($ref, $id){
         if ($ref == 'Galeria'){

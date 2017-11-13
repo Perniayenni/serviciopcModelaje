@@ -21,22 +21,44 @@ class DestacadosController extends Controller
         return response()->json(Destacados::get(),202);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function EditImg(Request $request){
+
+        $Imgs = new ImgsController();
+        $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgDestacado';
+        $url='../../ImagenesModelaje/ImgDestacado/';
+        $id_d = $request->get('id_d');
+        $id_img = $request->get('id_img');
+
+        foreach ($request->file('file') as $value) {
+               $nombre = $value->getClientOriginalName();
+               $imgG = Imgs::find($id_img);
+
+            // Eliminamos la foto existente
+            $url1 = $imgG->url;
+            $urlEditada= str_replace("http://www.ourproject.cl/", "/", $url1);
+            unlink('../..'.$urlEditada);
+
+            // Validamos si la img éxiste en base de datos
+
+                $value->move($url, $nombre);
+
+                // Ruta de muestra
+                $urlsend = $princUrl . '/' . $nombre;
+
+                // Llamamos la edicion de img
+                $Imgs->EditarImagenes($urlsend, $id_img); //
+
+                return response()->json(true);
+        }
+        //return response()->json(true);
+
+    }
+
     public function store(Request $request)
     {
         $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgDestacado';
