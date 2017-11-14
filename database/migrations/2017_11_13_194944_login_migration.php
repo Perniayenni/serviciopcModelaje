@@ -14,6 +14,7 @@ class LoginMigration extends Migration
             $table->string('apellido');
             $table->string('usuario');
             $table->string('contrasena');
+            $table->string('token');
         });
     }
 
