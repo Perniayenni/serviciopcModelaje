@@ -22,11 +22,7 @@ class ModelosController extends Controller
         return response()->json(Modelosp::get(),202);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
@@ -112,9 +108,15 @@ class ModelosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ref)
     {
-        //
+        $datos = Modelosp::where('nivel', '=', $ref)->get();
+        if ($datos != '[]'){
+            return response()->json($datos);
+        }else{
+            return response()->json(false );
+        }
+
     }
 
     /**
@@ -125,7 +127,7 @@ class ModelosController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

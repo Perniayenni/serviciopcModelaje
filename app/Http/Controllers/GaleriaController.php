@@ -52,8 +52,7 @@ class GaleriaController extends Controller
                 $value->move($urlGAleria.$tituloEditado, $nombre);
                 $url= $princUrl.$tituloEditado.'/'.$nombre;
                 $Imgs->GuardarImgs($url, $titulo, $id_g, '', ''); //
-                $Imgs->RedimenscionarImg($urlGAleria.$tituloEditado.'/'.$nombre);
-                return response()->json($urlGAleria.$tituloEditado.'/'.$nombre);
+               // $Imgs->RedimenscionarImg($urlGAleria.$tituloEditado.'/'.$nombre);
                 array_push($resultadosimg, $nombre.' Fue guardado de manera Éxitosa');
             }else{
                 array_push($resultadosimg, $nombre.' Ya existe');
@@ -61,7 +60,7 @@ class GaleriaController extends Controller
             }
         }
 
-
+        return response()->json(true);
         //return response()->json(['MensajeImg'=>$resultadosimg]);
     }
 
