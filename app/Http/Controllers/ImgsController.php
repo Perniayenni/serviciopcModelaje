@@ -80,7 +80,7 @@ class ImgsController extends Controller
 
     }
 
-    // Eliminamos las imagenes segun el id de Galería
+    // Eliminamos las imagenes segun el id
     public function destroy($id)
     {
         $img = Imgs::find($id);

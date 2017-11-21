@@ -120,7 +120,7 @@ class GaleriaController extends Controller
     public function update(Request $request, $id)
     {
         $princUrl = 'http://www.ourproject.cl/ImagenesModelaje/ImgGaleria/';
-        $urlGAleria='ImagenesModelaje/ImgGaleria/';
+        $urlGAleria='../../ImagenesModelaje/ImgGaleria/';
         $galeria = Galeria::find($id);
 
         // Ruta vieja
@@ -143,15 +143,16 @@ class GaleriaController extends Controller
 
         //Edito el nombre de la carpeta
 
-        //rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
+        rename($urlGAleria.$rutaoldEdit, $urlGAleria.$tituloEditado);
 
         // Edito las imagenes asociadas a galeria
-        /* $imgs = Imgs::where('id_g', '=', $id)->get();
+         $imgs = Imgs::where('id_g', '=', $id)->get();
         foreach ($imgs as $valor){
-            $valor->url = $princUrl.$tituloEditado;
+            $nombre = explode('/', $valor->url);
+            $valor->url = $princUrl.$tituloEditado.'/'.$nombre[6];
             $valor->ref = $tituloEditado;
             $valor->save();
-        }*/
+        }
 
 
         return response()->json(['mensaje'=>true, 'codigo'=>200], 200);
@@ -174,7 +175,7 @@ class GaleriaController extends Controller
         }
         // Elimino la carpeta del directorio
 
-            //rmdir($urlGAleria.$tituloEditado);
+        //rmdir($urlGAleria.$tituloEditado);
 
         // Elimino la fila de galeria
         $galeria->delete();
