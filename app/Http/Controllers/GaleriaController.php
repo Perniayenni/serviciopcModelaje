@@ -167,15 +167,17 @@ class GaleriaController extends Controller
        $galeria = Galeria::find($id);
        $titulo = $galeria->titulo;
        $tituloEditado = str_replace(" ", "_", $titulo);
+        $Imgagenes = new ImgsController();
 
        // Elimino las imagenes asociadas a galeria
         $imgs = Imgs::where('id_g', '=', $id)->get();
         foreach ($imgs as $valor){
+            $Imgagenes->destroy($valor->id_img);
             $valor->delete();
         }
         // Elimino la carpeta del directorio
 
-        //rmdir($urlGAleria.$tituloEditado);
+        rmdir($urlGAleria.$tituloEditado);
 
         // Elimino la fila de galeria
         $galeria->delete();
